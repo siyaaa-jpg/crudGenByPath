@@ -1,6 +1,7 @@
 import { StartFunc as StartFuncPortListen } from "./PortListen.js";
 
 import { router as routerbinByPath } from "./binByPath/routes.js";
+import { router as routerboilerPlate } from "./boilerPlate/config.js";
 
 import express from 'express';
 import http from 'http';
@@ -25,6 +26,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', routerbinByPath);
+app.use('/config', routerboilerPlate);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
