@@ -3,6 +3,7 @@ import {
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncRepo,
     PostFunc as PostFuncRepo,
     PostFromModalFunc as PostFromModalFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
+    PostUploadFunc as PostUploadFuncRepo
 } from './{{ksSample}}Repo.js';
 
 import {
@@ -44,7 +45,15 @@ let PostFromModalFunc = (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let PostUploadFunc = (req, res) => {
+    let LocalBodyData = req.body;
+
+    let LocalFromRepo = PostUploadFuncRepo({ LocalBodyAsModal: LocalBodyData });
+    res.json(LocalFromRepo);
+};
+
 export {
     GetFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
-    GetFromModalUuidFunc, GetFromModalUuidAndTSFunc
+    GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
+    PostUploadFunc
 };

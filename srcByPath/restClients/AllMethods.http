@@ -26,9 +26,18 @@ content-type: application/json
 
 ###
 
-POST http://localhost:7016/api/{{sample}}/FromModal
+POST http://localhost:7016/api/{{ksSample}}/FromModal
 content-type: application/json
 
 {
 
 }
+
+###
+
+POST http://localhost:7016/api/{{ksSample}}/Upload
+content-type: application/json
+
+[
+
+]

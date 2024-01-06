@@ -2,7 +2,8 @@ import {
     GetFunc as GetFuncDal, GetFromModalUuidFunc as GetFromModalUuidFuncDal,
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncDal,
     PostFunc as PostFuncDal,
-    PostFromModalFunc as PostFromModalFuncDal, GetFromModalFunc as GetFromModalFuncDal
+    PostFromModalFunc as PostFromModalFuncDal, GetFromModalFunc as GetFromModalFuncDal,
+    PostUploadFunc as PostUploadFuncDal
 } from './{{ksSample}}Dal.js';
 
 let GetFunc = () => {
@@ -29,7 +30,12 @@ let PostFromModalFunc = ({ LocalBodyAsModal }) => {
     return PostFromModalFuncDal({ LocalBodyAsModal });
 };
 
+let PostUploadFunc = ({ LocalBodyAsModal }) => {
+    return PostUploadFuncDal({ LocalBodyAsModal });
+};
+
 export {
     GetFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
-    GetFromModalUuidFunc, GetFromModalUuidAndTSFunc
+    GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
+    PostUploadFunc
 };

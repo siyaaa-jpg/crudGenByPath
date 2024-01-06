@@ -4,7 +4,8 @@ var router{{ksSample}} = express.Router();
 
 import {
     GetFunc, GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    PostFunc, PostFromModalFunc, GetFromModalFunc
+    PostFunc, PostFromModalFunc, GetFromModalFunc,
+    PostUploadFunc
 } from './{{ksSample}}Controller.js';
 
 import { GetFunc as GetFuncmiddleware } from './{{ksSample}}Middleware.js';
@@ -17,5 +18,6 @@ router{{ksSample}}.get('/FromModalUuidAndTS', GetFromModalUuidAndTSFunc);
 router{{ksSample}}.post('/BodyCheck', GetFuncmiddleware, PostFunc);
 router{{ksSample}}.post('/', PostFunc);
 router{{ksSample}}.post('/FromModal', PostFromModalFunc);
+router{{ksSample}}.post('/Upload', PostUploadFunc);
 
 export { router{{ksSample}} };
