@@ -3,7 +3,7 @@ let StartFunc = ({ inEndPointsArray, inFileData }) => {
 
     let LocalFileData = inFileData;
 
-    let LocalToSearch = "router.use('/{{sample}}', router{{sample}});";
+    let LocalToSearch = "router.use('/{{ksSample}}', router{{ksSample}});";
 
     let FromLocalForEndPoints = LocalForEndPoints({ inEndPointsArray: LocalEndPointsArray, inToSearch: LocalToSearch });
     let LocalNewData = LocalFileData.replaceAll(LocalToSearch, FromLocalForEndPoints);
@@ -17,7 +17,7 @@ let LocalForEndPoints = ({ inEndPointsArray, inToSearch }) => {
     let LocalToSearch = inToSearch;
 
     let LocalNewArray = LocalEndPointsArray.map(element => {
-        return LocalToSearch.replaceAll("{{sample}}", element);
+        return LocalToSearch.replaceAll("{{ksSample}}", element);
     });
 
     return LocalNewArray.join("\r\n");

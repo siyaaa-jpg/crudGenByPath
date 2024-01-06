@@ -3,6 +3,8 @@ import path from 'path';
 
 import { StartFunc as StartFuncBaseDirs } from './BaseDirs/EntryFile.js';
 
+import { StartFunc as StartFuncForRoutesFile } from './ForRoutesFile/EntryFile.js';
+
 import { StartFunc as StartFuncFordataModals } from './FordataModals.js';
 import { StartFunc as StartFuncForDataColumns } from './ForDataColumns.js';
 
@@ -42,10 +44,10 @@ let StartFunc = ({ inFilesArray }) => {
 
     // StartFuncBaseDirs({ inTo: CommonTo });
 
-    // StartFuncForRoutesFile({
-    //     inEndPointsArray: LocalFilesArray.map(element => element.FileName),
-    //     inFrom: CommonFrom, inTo: CommonTo
-    // });
+    StartFuncForRoutesFile({
+        inEndPointsArray: LocalFilesArray.map(element => element.FileName),
+        inFrom: CommonFrom, inTo: CommonTo
+    });
 
     LocalFilesArray.forEach(element => {
         StartFuncBaseDirs({ inElement: element.FileName, inTo: CommonTo });
@@ -54,7 +56,7 @@ let StartFunc = ({ inFilesArray }) => {
             inElement: element.FileName,
             inColumnsArray: element.Columns, inTo: CommonTo
         });
-        
+
         StartFuncForDataColumns({
             inElement: element.FileName,
             inFrom: CommonFrom, inTo: CommonTo

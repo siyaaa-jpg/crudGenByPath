@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncPortListen } from "./PortListen.js";
 
-import { routercustomers } from "./binByPath/customers/customersRoute.js";
+import { router as routerbinByPath } from "./binByPath/routes.js";
 
 import express from 'express';
 import http from 'http';
@@ -24,7 +24,7 @@ app.get('/', (req, res) => {
     res.json("kkhhhhhhh")
 });
 
-app.use('/api/customers', routercustomers);
+app.use('/api', routerbinByPath);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
