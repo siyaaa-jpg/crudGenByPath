@@ -1,5 +1,6 @@
 import {
-    GetFunc as GetFuncDal, GetFromModalUuidFunc as GetFromModalUuidFuncDal,
+    GetFunc as GetFuncDal,GetDataOnlyFunc as GetDataOnlyFuncDal,
+     GetFromModalUuidFunc as GetFromModalUuidFuncDal,
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncDal,
     PostFunc as PostFuncDal,
     PostFromModalFunc as PostFromModalFuncDal, GetFromModalFunc as GetFromModalFuncDal,
@@ -8,6 +9,10 @@ import {
 
 let GetFunc = () => {
     return GetFuncDal();
+};
+
+let GetDataOnlyFunc = () => {
+    return GetDataOnlyFuncDal();
 };
 
 let GetFromModalFunc = () => {
@@ -35,7 +40,7 @@ let PostUploadFunc = ({ LocalBodyAsModal }) => {
 };
 
 export {
-    GetFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
+    GetFunc,GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     PostUploadFunc
 };

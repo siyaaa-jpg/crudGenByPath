@@ -3,7 +3,7 @@ import express from 'express';
 var router{{ksSample}} = express.Router();
 
 import {
-    GetFunc, GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
+    GetFunc,GetDataOnlyFunc, GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     PostFunc, PostFromModalFunc, GetFromModalFunc,
     PostUploadFunc
 } from './{{ksSample}}Controller.js';
@@ -14,6 +14,7 @@ router{{ksSample}}.get('/', GetFunc);
 router{{ksSample}}.get('/FromModal', GetFromModalFunc);
 router{{ksSample}}.get('/FromModalUuid', GetFromModalUuidFunc);
 router{{ksSample}}.get('/FromModalUuidAndTS', GetFromModalUuidAndTSFunc);
+router{{ksSample}}.get('/DataOnly', GetDataOnlyFunc);
 
 router{{ksSample}}.post('/BodyCheck', GetFuncmiddleware, PostFunc);
 router{{ksSample}}.post('/', PostFunc);

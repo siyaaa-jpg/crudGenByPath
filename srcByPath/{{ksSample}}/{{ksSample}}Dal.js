@@ -8,6 +8,16 @@ let GetFunc = () => {
     return StartFuncreadFile();
 };
 
+let GetDataOnlyFunc = () => {
+    let LocalFromLowDb= StartFuncreadFile();
+
+    if (LocalFromLowDb===false) {
+    return false;    
+    };
+
+    return LocalFromLowDb.JsonData;
+};
+
 let GetFromModalFunc = () => {
     return StartFuncReadFileFromModal();
 };
@@ -33,7 +43,7 @@ let PostUploadFunc = ({ LocalBodyAsModal }) => {
 };
 
 export {
-    GetFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
+    GetFunc, GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     PostUploadFunc
 };

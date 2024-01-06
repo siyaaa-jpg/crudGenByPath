@@ -1,5 +1,6 @@
 import {
-    GetFunc as GetFuncRepo, GetFromModalUuidFunc as GetFromModalUuidFuncRepo,
+    GetFunc as GetFuncRepo,GetDataOnlyFunc as GetDataOnlyFuncRepo,
+     GetFromModalUuidFunc as GetFromModalUuidFuncRepo,
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncRepo,
     PostFunc as PostFuncRepo,
     PostFromModalFunc as PostFromModalFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
@@ -12,6 +13,11 @@ import {
 
 let GetFunc = (req, res) => {
     let LocalFromRepo = GetFuncRepo();
+    res.json(LocalFromRepo);
+};
+
+let GetDataOnlyFunc = (req, res) => {
+    let LocalFromRepo = GetDataOnlyFuncRepo();
     res.json(LocalFromRepo);
 };
 
@@ -53,7 +59,7 @@ let PostUploadFunc = (req, res) => {
 };
 
 export {
-    GetFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
+    GetFunc,GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     PostUploadFunc
 };
