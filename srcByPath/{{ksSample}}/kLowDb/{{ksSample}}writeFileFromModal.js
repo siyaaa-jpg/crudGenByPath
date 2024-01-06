@@ -1,18 +1,11 @@
 import { LowSync } from 'lowdb'
 import { JSONFileSync } from 'lowdb/node'
 import Configjson from '../Config.json' assert { type: 'json' };
-import ModalDataJson from '../../{{ksSample}}/{{ksSample}}data.json' assert { type: 'json' };
 
-let StartFunc = (inDataToInsert) => {
-    let LocalDataToInsert = {};
-    {{KSAssignKeys}}
+import { ColumnsPullFunc } from '../{{ksSample}}DataColumns.js';
 
-    let LocalinDataToInsert = LocalDataToInsert;
-
-    let LocalFromModal = {
-        ...ModalDataJson,
-        ...LocalinDataToInsert
-    };
+let StartFunc = ({ LocalBodyAsModal }) => {
+    let LocalFromModal = ColumnsPullFunc()(LocalBodyAsModal);
 
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
 

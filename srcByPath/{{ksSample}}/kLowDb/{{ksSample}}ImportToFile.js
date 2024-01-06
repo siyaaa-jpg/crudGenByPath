@@ -1,7 +1,6 @@
 import { LowSync } from 'lowdb'
 import { JSONFileSync } from 'lowdb/node'
 import Configjson from '../Config.json' assert { type: 'json' };
-import ModalDataJson from '../../{{ksSample}}/{{ksSample}}data.json' assert { type: 'json' };
 
 let StartFunc = ({ LocalBodyAsModal }) => {
     let LocalinDataToInsert = LocalBodyAsModal;

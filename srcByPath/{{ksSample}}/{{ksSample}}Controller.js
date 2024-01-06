@@ -39,7 +39,7 @@ let PostFunc = (req, res) => {
 
 let PostFromModalFunc = (req, res) => {
     let LocalBodyData = req.body;
-    let LocalBodyAsModal = ColumnsPullFunc(LocalBodyData);
+    let LocalBodyAsModal = ColumnsPullFunc()(LocalBodyData);
 
     let LocalFromRepo = PostFromModalFuncRepo({ LocalBodyAsModal });
     res.json(LocalFromRepo);

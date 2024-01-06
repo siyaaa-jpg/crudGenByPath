@@ -4,7 +4,7 @@ let ColumnsPullFunc = () => {
     let LocalColumns = Object.keys(ModalDataAsJson);
     let ReturnFuncAsString = `({ ${LocalColumns.toString()} }) => ({ ${LocalColumns.toString()} })`;
 
-    return ReturnFuncAsString;
+    return eval(ReturnFuncAsString);
 };
 
 export {
