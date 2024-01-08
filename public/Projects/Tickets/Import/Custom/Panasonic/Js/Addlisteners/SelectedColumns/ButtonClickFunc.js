@@ -1,5 +1,6 @@
 import { StartFunc as StartFuncCheckBeforeFetch } from "./CheckBeforeFetch.js";
 import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
+import { StartFunc as StartFuncFetchFunc } from "./FetchFunc.js";
 
 let StartFunc = async () => {
     if (StartFuncCheckBeforeFetch()) {
@@ -13,7 +14,8 @@ let StartFunc = async () => {
             reader.onload = async function (e) {
                 const csvData = e.target.result;
                 const jsonArray = convertCsvToJsonFunction(csvData);
-                StartFuncAfterFetch({ inFromFetch: jsonArray });
+                let response = await StartFuncFetchFunc({ inBodyData: jsonArray });
+                StartFuncAfterFetch({ inFromFetch: response });
             };
 
             reader.readAsText(file);
@@ -36,10 +38,5 @@ let convertCsvToJsonFunction = (csvData) => {
 
     return selectedData;
 }
-
-// let convertCsvToJsonFunction = (csvData) => {
-//     const parsedData = Papa.parse(csvData, { header: true });
-//     return parsedData.data;
-// };
 
 export { StartFunc };

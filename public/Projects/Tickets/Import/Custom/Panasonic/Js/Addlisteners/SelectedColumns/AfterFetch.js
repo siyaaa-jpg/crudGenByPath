@@ -1,12 +1,8 @@
-import { StartFunc as StartFuncTableHead } from "./TableHead.js";
-
 let StartFunc = ({ inFromFetch }) => {
-    var $table = $('#table');
-    $table.bootstrapTable('destroy')
+    window.location.href = ""
 
-    StartFuncTableHead();
-
-    $table.bootstrapTable({ data: inFromFetch });
 };
+
+
 
 export { StartFunc };
