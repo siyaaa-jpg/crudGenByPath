@@ -4,7 +4,8 @@ import {
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncRepo,
     PostFunc as PostFuncRepo,
     PostFromModalFunc as PostFromModalFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
-    PostUploadFunc as PostUploadFuncRepo
+    PostUploadFunc as PostUploadFuncRepo,
+    PostGetSelectColumnsFunc as PostGetSelectColumnsFuncRepo
 } from './{{ksSample}}Repo.js';
 
 import {
@@ -58,8 +59,16 @@ let PostUploadFunc = (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let PostGetSelectColumnsFunc = (req, res) => {
+    let LocalBodyData = req.body;
+    let LocalBodyAsModal = ColumnsPullFunc()(LocalBodyData);
+
+    let LocalFromRepo = PostGetSelectColumnsFuncRepo({ LocalBodyAsModal });
+    res.json(LocalFromRepo);
+};
+
 export {
     GetFunc,GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    PostUploadFunc
+    PostUploadFunc, PostGetSelectColumnsFunc
 };

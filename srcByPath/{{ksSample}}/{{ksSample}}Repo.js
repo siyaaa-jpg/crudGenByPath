@@ -4,7 +4,7 @@ import {
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncDal,
     PostFunc as PostFuncDal,
     PostFromModalFunc as PostFromModalFuncDal, GetFromModalFunc as GetFromModalFuncDal,
-    PostUploadFunc as PostUploadFuncDal
+    PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal
 } from './{{ksSample}}Dal.js';
 
 let GetFunc = () => {
@@ -39,8 +39,12 @@ let PostUploadFunc = ({ LocalBodyAsModal }) => {
     return PostUploadFuncDal({ LocalBodyAsModal });
 };
 
+let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
+    return PostGetSelectColumnsFuncDal({ LocalBodyAsModal });
+};
+
 export {
     GetFunc,GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    PostUploadFunc
+    PostUploadFunc, PostGetSelectColumnsFunc
 };
