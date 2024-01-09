@@ -128,9 +128,9 @@ const JfCallFromNo = ({ FromFetch, tableHeadRowId }) => {
 const JfPanasonic = ({ FromFetch, tableHeadRowId }) => {
 
     let jVarLocalNewTh = document.createElement("th");
-    jVarLocalNewTh.dataset.field = "Panasonic";
+    jVarLocalNewTh.dataset.field = "Brand";
     jVarLocalNewTh.setAttribute("data-filter-control", "select");
-    jVarLocalNewTh.innerHTML = "Panasonic";
+    jVarLocalNewTh.innerHTML = "Brand";
     tableHeadRowId.appendChild(jVarLocalNewTh);
 };
 
