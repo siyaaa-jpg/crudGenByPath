@@ -22,9 +22,9 @@ let StartFunc = ({ LocalBodyAsModal }) => {
     db.data.push(LocalDataWithUuid);
     db.write();
 
-    LocalReturnData.KTF = true;
+    // LocalReturnData.KTF = true;
 
-    return LocalReturnData;
+    return LocalDataWithUuid.UuId;;
 };
 
 const LocalFunc = ({ inDataToInsert }) => {
