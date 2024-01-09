@@ -4,6 +4,7 @@ import { StartFunc as StartFuncwriteFile } from './kLowDb/{{ksSample}}writeFile.
 import { StartFunc as StartFuncWriteFileFromModal } from './kLowDb/{{ksSample}}writeFileFromModal.js';
 import { StartFunc as StartFuncImportToFile } from './kLowDb/{{ksSample}}ImportToFile.js';
 import { StartFunc as StartFuncUploadToFile } from './kLowDb/{{ksSample}}UploadToFile.js';
+import { StartFunc as StartFunReadFileById } from './kLowDb/{{ksSample}}readFileById.js';
 
 let GetFunc = () => {
     return StartFuncreadFile();
@@ -18,8 +19,9 @@ let GetDataOnlyFunc = () => {
 
     return LocalFromLowDb.JsonData;
 };
-let GetIdFunc = () => {
-    let LocalFromLowDb = StartFuncreadFile();
+
+let GetIdFunc = ({ inId }) => {
+    let LocalFromLowDb = StartFunReadFileById({ inId });
 
     if (LocalFromLowDb === false) {
         return false;
@@ -63,5 +65,5 @@ let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
 export {
     GetFunc, GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc,GetIdFunc
+    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc, GetIdFunc
 };

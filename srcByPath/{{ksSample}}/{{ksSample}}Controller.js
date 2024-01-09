@@ -24,8 +24,10 @@ let GetDataOnlyFunc = (req, res) => {
 };
 let GetIdFunc = (req, res) => {
     let LocalParams=req.params;
+    let LocalIfFromParam=LocalParams.id;
+
     console.log("LocalParams : ",LocalParams);
-    let LocalFromRepo = GetIdFuncRepo();
+    let LocalFromRepo = GetIdFuncRepo({inId:LocalIfFromParam});
     res.json(LocalFromRepo);
 };
 

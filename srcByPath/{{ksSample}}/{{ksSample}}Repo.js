@@ -15,8 +15,8 @@ let GetFunc = () => {
 let GetDataOnlyFunc = () => {
     return GetDataOnlyFuncDal();
 };
-let GetIdFunc = () => {
-    return GetIdFuncDal();
+let GetIdFunc = ({inId}) => {
+    return GetIdFuncDal({inId});
 };
 
 let GetFromModalFunc = () => {
