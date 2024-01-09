@@ -23,6 +23,8 @@ let GetDataOnlyFunc = (req, res) => {
     res.json(LocalFromRepo);
 };
 let GetIdFunc = (req, res) => {
+    let LocalParams=req.params;
+    console.log("LocalParams : ",LocalParams);
     let LocalFromRepo = GetIdFuncRepo();
     res.json(LocalFromRepo);
 };
