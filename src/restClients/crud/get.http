@@ -1,0 +1,2 @@
+###Get for as is data
+GET http://localhost:7016/api/{{ksSample}}
