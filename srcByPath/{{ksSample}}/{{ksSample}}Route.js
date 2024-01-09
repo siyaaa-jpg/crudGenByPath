@@ -5,7 +5,7 @@ var router{{ksSample}} = express.Router();
 import {
     GetFunc,GetDataOnlyFunc, GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     PostFunc, PostFromModalFunc, GetFromModalFunc,
-    PostUploadFunc, PostGetSelectColumnsFunc
+    PostUploadFunc, PostGetSelectColumnsFunc,PostUploadFromModalFunc
 } from './{{ksSample}}Controller.js';
 
 import { GetFunc as GetFuncmiddleware } from './{{ksSample}}Middleware.js';
@@ -21,5 +21,6 @@ router{{ksSample}}.post('/GetSelectColumns', PostGetSelectColumnsFunc);
 router{{ksSample}}.post('/', PostFunc);
 router{{ksSample}}.post('/FromModal', PostFromModalFunc);
 router{{ksSample}}.post('/Upload', PostUploadFunc);
+router{{ksSample}}.post('/UploadFromModal', PostUploadFromModalFunc);
 
 export { router{{ksSample}} };
