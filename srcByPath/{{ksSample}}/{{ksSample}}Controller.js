@@ -82,5 +82,6 @@ let PostGetSelectColumnsFunc = (req, res) => {
 export {
     GetFunc,GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    PostUploadFunc, PostGetSelectColumnsFunc,PostUploadFromModalFunc
+    PostUploadFunc, PostGetSelectColumnsFunc,PostUploadFromModalFunc,
+    GetIdFunc
 };
