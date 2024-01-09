@@ -1,6 +1,7 @@
 let StartFunc = async ({ inBodyData }) => {
 
-    let jVarLocalFetchUrl = `/api/Tickets/Upload`;
+    // let jVarLocalFetchUrl = `/api/Tickets/Upload`;
+    let jVarLocalFetchUrl = `/api/Tickets/UploadFromModal`;
     let jVarFromFetch = await fetch(jVarLocalFetchUrl, {
         method: 'POST',
         headers: {
