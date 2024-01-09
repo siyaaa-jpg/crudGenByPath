@@ -18,6 +18,15 @@ let GetDataOnlyFunc = () => {
 
     return LocalFromLowDb.JsonData;
 };
+let GetIdFunc = () => {
+    let LocalFromLowDb = StartFuncreadFile();
+
+    if (LocalFromLowDb === false) {
+        return false;
+    };
+
+    return LocalFromLowDb.JsonData;
+};
 
 let GetFromModalFunc = () => {
     return StartFuncReadFileFromModal();
@@ -54,5 +63,5 @@ let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
 export {
     GetFunc, GetDataOnlyFunc, PostFunc, PostFromModalFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc
+    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc,GetIdFunc
 };
