@@ -6,7 +6,7 @@ import {
     PostFromModalFunc as PostFromModalFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
     PostUploadFunc as PostUploadFuncRepo,
     PostGetSelectColumnsFunc as PostGetSelectColumnsFuncRepo,
-    PostUploadFromModalFunc as PostUploadFromModalFuncRepo
+    PostUploadFromModalFunc as PostUploadFromModalFuncRepo,GetIdFunc as GetIdFuncRepo
 } from './{{ksSample}}Repo.js';
 
 import {
@@ -20,6 +20,10 @@ let GetFunc = (req, res) => {
 
 let GetDataOnlyFunc = (req, res) => {
     let LocalFromRepo = GetDataOnlyFuncRepo();
+    res.json(LocalFromRepo);
+};
+let GetIdFunc = (req, res) => {
+    let LocalFromRepo = GetIdFuncRepo();
     res.json(LocalFromRepo);
 };
 
