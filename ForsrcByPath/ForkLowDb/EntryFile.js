@@ -4,6 +4,7 @@ import { StartFunc as StartFuncReadFileFromModal } from './readFileFromModal.js'
 import { StartFunc as StartFuncWriteFile } from './writeFile.js';
 import { StartFunc as StartFuncwriteFileFromModal } from './writeFileFromModal.js';
 import { StartFunc as StartFuncImportToFile } from './ImportToFile.js';
+import { StartFunc as StartFuncUploadToFile } from './UploadToFile.js';
 
 let StartFunc = ({ inElement, inColumnsArray, inFrom, inTo }) => {
     let LocalElement = inElement;
@@ -33,6 +34,11 @@ let StartFunc = ({ inElement, inColumnsArray, inFrom, inTo }) => {
     });
 
     StartFuncImportToFile({
+        inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
+        inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
+    });
+
+    StartFuncUploadToFile({
         inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
         inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
     });
