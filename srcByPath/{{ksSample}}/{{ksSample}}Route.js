@@ -15,6 +15,7 @@ router{{ksSample}}.get('/FromModal', GetFromModalFunc);
 router{{ksSample}}.get('/FromModalUuid', GetFromModalUuidFunc);
 router{{ksSample}}.get('/FromModalUuidAndTS', GetFromModalUuidAndTSFunc);
 router{{ksSample}}.get('/DataOnly', GetDataOnlyFunc);
+router{{ksSample}}.get('/:id', GetDataOnlyFunc);
 
 router{{ksSample}}.post('/BodyCheck', GetFuncmiddleware, PostFunc);
 router{{ksSample}}.post('/GetSelectColumns', PostGetSelectColumnsFunc);
