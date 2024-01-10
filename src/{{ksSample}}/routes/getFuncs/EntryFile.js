@@ -5,7 +5,7 @@ var router = express.Router();
 import {
     GetFunc,GetDataOnlyFunc, GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
     GetFromModalFunc,GetIdFunc
-} from './{{ksSample}}Controller.js';
+} from '../../controllers/getFuncs/EntryFile.js';
 
 router.get('/', GetFunc);
 router.get('/FromModal', GetFromModalFunc);
