@@ -7,9 +7,9 @@ import {
     PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc
 } from '../../controllers/postFuncs/EntryFile.js';
 
-import { GetFunc as GetFuncmiddleware } from './Middleware.js';
+import { PostFunc as PostFuncmiddleware } from '../../middlewares/postFuncs/EntryFile.js';
 
-router.post('/BodyCheck', GetFuncmiddleware, PostFunc);
+router.post('/BodyCheck', PostFuncmiddleware, PostFunc);
 router.post('/GetSelectColumns', PostGetSelectColumnsFunc);
 router.post('/', PostFunc);
 router.post('/FromModal', PostFromModalFunc);

@@ -28,5 +28,5 @@ let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
 
 export {
     PostFunc, PostFromModalFunc, 
-    PostUploadFunc, PostGetSelectColumnsFunc,PostUploadFromModalFunc,GetIdFunc
+    PostUploadFunc, PostGetSelectColumnsFunc,PostUploadFromModalFunc
 };
