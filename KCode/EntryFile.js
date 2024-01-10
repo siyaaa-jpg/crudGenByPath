@@ -60,6 +60,8 @@ let StartFunc = ({ inFilesArray }) => {
         StartFuncCopyDatas({
             inFromFolderName: CommonFromFolderName
         });
+
+        fs.copyFileSync(`${CommonFrom}/Config.json`, `${CommonTo}/Config.json`);
     });
 };
 
