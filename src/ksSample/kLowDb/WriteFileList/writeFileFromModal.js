@@ -2,10 +2,10 @@ import { LowSync } from 'lowdb'
 import { JSONFileSync } from 'lowdb/node'
 import Configjson from '../Config.json' assert { type: 'json' };
 
-import { ColumnsPullFunc } from '../{{ksSample}}DataColumns.js';
+import { ColumnsPullFunc } from '../../{{ksSample}}DataColumns.js';
 
 let StartFunc = ({ LocalBodyAsModal }) => {
-    let LocalinDataToInsert = LocalBodyAsModal;
+    let LocalFromModal = ColumnsPullFunc()(LocalBodyAsModal);
 
     let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
 
@@ -17,28 +17,14 @@ let StartFunc = ({ LocalBodyAsModal }) => {
 
     const db = new LowSync(new JSONFileSync(LocalReturnData.UserDataFilePath), defaultData);
     db.read();
+    let LocalDataWithUuid = LocalFunc({ inDataToInsert: LocalFromModal });
 
-    let LocalArrayAfterUuid = LocalFuncForArray({ inDataToInsert: LocalinDataToInsert });
-
-    db.data.push(...LocalArrayAfterUuid);
+    db.data.push(LocalDataWithUuid);
     db.write();
 
-    LocalReturnData = LocalArrayAfterUuid.length;
+    // LocalReturnData.KTF = true;
 
-    return LocalReturnData;
-};
-
-const LocalFuncForArray = ({ inDataToInsert }) => {
-    let LocalReturnData = inDataToInsert.map(element => {
-        // let LocalReturnData = LocalFunc({ inDataToInsert: element });
-        let LocalFromModal = ColumnsPullFunc()(element);
-
-        let LocalReturnData = { ...LocalFromModal, UuId: uuidv4(), DateTime: Timestamp() };
-
-        return LocalReturnData
-    });
-
-    return LocalReturnData;
+    return LocalDataWithUuid.UuId;;
 };
 
 const LocalFunc = ({ inDataToInsert }) => {
