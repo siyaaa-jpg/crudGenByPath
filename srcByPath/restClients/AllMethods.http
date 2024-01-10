@@ -15,7 +15,7 @@ GET http://localhost:7016/api/{{ksSample}}/FromModalUuidAndTS
 
 ###
 
-POST http://localhost:7016/api/{{ksSample}}/BodyCheck
+POST http://localhost:7016/api/ksSample/BodyCheck
 content-type: application/json
 
 ###

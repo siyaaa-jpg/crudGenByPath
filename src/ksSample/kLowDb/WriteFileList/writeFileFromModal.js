@@ -2,7 +2,7 @@ import { LowSync } from 'lowdb'
 import { JSONFileSync } from 'lowdb/node'
 import Configjson from '../Config.json' assert { type: 'json' };
 
-import { ColumnsPullFunc } from '../../{{ksSample}}DataColumns.js';
+import { ColumnsPullFunc } from '../../DataColumns.js';
 
 let StartFunc = ({ LocalBodyAsModal }) => {
     let LocalFromModal = ColumnsPullFunc()(LocalBodyAsModal);
