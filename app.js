@@ -1,7 +1,9 @@
 import { StartFunc as StartFuncPortListen } from "./PortListen.js";
 
-import { router as routerbinByPath } from "./binByPath/routes.js";
+// import { router as routerbinByPath } from "./binByPath/routes.js";
 import { router as routerboilerPlate } from "./boilerPlate/config.js";
+
+import { router as routerFromSrc } from "./src/routes.js";
 
 import express from 'express';
 import http from 'http';
@@ -25,8 +27,9 @@ app.get('/', (req, res) => {
     res.json("kkhhhhhhh")
 });
 
-app.use('/api', routerbinByPath);
+// app.use('/api', routerbinByPath);
 app.use('/config', routerboilerPlate);
+app.use('/src', routerFromSrc);
 
 function normalizePort(val) {
     var port = parseInt(val, 10);
