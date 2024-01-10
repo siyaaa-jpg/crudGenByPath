@@ -1,6 +1,6 @@
-import { StartFunc as StartFuncreadFile } from '../../kLowDb/{{ksSample}}readFile.js';
-import { StartFunc as StartFuncReadFileFromModal } from '../../kLowDb/{{ksSample}}readFileFromModal.js';
-import { StartFunc as StartFunReadFileById } from '../../kLowDb/{{ksSample}}readFileById.js';
+import { StartFunc as StartFuncreadFile } from '../../kLowDb/ReadFileList/readFile.js';
+import { StartFunc as StartFuncReadFileFromModal } from '../../kLowDb/ReadFileList/readFileFromModal.js';
+import { StartFunc as StartFunReadFileById } from '../../kLowDb/ReadFileList/readFileById.js';
 
 let GetFunc = () => {
     return StartFuncreadFile();
