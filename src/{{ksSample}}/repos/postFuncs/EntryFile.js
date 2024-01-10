@@ -3,7 +3,7 @@ import {
     PostFromModalFunc as PostFromModalFuncDal, 
     PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal,
     PostUploadFromModalFunc as PostUploadFromModalFuncDal
-} from '../../{{ksSample}}Dal.js';
+} from '../../dals/postFuncs/EntryFile.js';
 
 
 let PostFunc = ({ LocalKey1: LocalKeys }) => {

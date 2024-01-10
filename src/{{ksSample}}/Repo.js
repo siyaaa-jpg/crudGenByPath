@@ -6,7 +6,7 @@ import {
     PostFromModalFunc as PostFromModalFuncDal, GetFromModalFunc as GetFromModalFuncDal,
     PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal,
     PostUploadFromModalFunc as PostUploadFromModalFuncDal, GetIdFunc as GetIdFuncDal
-} from './{{ksSample}}Dal.js';
+} from './Dal.js';
 
 let GetFunc = () => {
     return GetFuncDal();
