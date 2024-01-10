@@ -5,7 +5,7 @@ var router = express.Router();
 import {
     PostFunc, PostFromModalFunc,
     PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc
-} from './Controller.js';
+} from '../../controllers/postFuncs/EntryFile.js';
 
 import { GetFunc as GetFuncmiddleware } from './Middleware.js';
 
