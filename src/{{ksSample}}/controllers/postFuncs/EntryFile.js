@@ -4,7 +4,7 @@ import {
     PostUploadFunc as PostUploadFuncRepo,
     PostGetSelectColumnsFunc as PostGetSelectColumnsFuncRepo,
     PostUploadFromModalFunc as PostUploadFromModalFuncRepo
-} from './{{ksSample}}Repo.js';
+} from '../../repos/postFuncs/EntryFile.js';
 
 import {
     ColumnsPullFunc

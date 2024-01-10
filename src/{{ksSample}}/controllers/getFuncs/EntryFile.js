@@ -3,7 +3,7 @@ import {
     GetFromModalUuidFunc as GetFromModalUuidFuncRepo,
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
     GetIdFunc as GetIdFuncRepo
-} from './{{ksSample}}Repo.js';
+} from '../../repos/getFuncs/EntryFile.js';
 
 
 let GetFunc = (req, res) => {
