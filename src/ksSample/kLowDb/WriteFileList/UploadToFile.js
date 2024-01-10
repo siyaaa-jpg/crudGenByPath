@@ -3,6 +3,7 @@ import { JSONFileSync } from 'lowdb/node'
 import Configjson from '../Config.json' assert { type: 'json' };
 
 import { ColumnsPullFunc } from '../../{{ksSample}}DataColumns.js';
+import fileNameJson from '../fileName.json' assert { type: 'json' };
 
 let StartFunc = ({ LocalBodyAsModal }) => {
     let LocalinDataToInsert = LocalBodyAsModal;
@@ -11,7 +12,7 @@ let StartFunc = ({ LocalBodyAsModal }) => {
 
     LocalReturnData.KTF = false;
 
-    LocalReturnData.UserDataFilePath = `${Configjson.JsonPath}/{{ksSample}}.json`;
+    LocalReturnData.UserDataFilePath = `${Configjson.JsonPath}/${fileNameJson.fileName}`;
 
     const defaultData = { error: "From KLowDb" }
 
