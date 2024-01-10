@@ -1,69 +1,39 @@
 import fs from 'fs';
 
-import { StartFunc as StartFuncReadFileFromModal } from './readFileFromModal.js';
-import { StartFunc as StartFuncWriteFile } from './writeFile.js';
-import { StartFunc as StartFuncwriteFileFromModal } from './writeFileFromModal.js';
-import { StartFunc as StartFuncImportToFile } from './ImportToFile.js';
-import { StartFunc as StartFuncUploadToFile } from './UploadToFile.js';
-import { StartFunc as StartFuncReadFileById } from './ReadFileById.js';
-
 let StartFunc = ({ inElement, inColumnsArray, inFrom, inTo }) => {
     let LocalElement = inElement;
     let LocalTypeName = "kLowDb";
     let LocalFrom = inFrom;
     let LocalTo = inTo;
-    let LocalSampleString = "{{ksSample}}";
+    let LocalSampleString = "ksSample";
     let LocalColumnsArray = inColumnsArray;
 
-    fs.mkdirSync(`${LocalTo}/${LocalElement}/${LocalTypeName}`);
+    // fs.mkdirSync(`${LocalTo}/${LocalElement}/${LocalTypeName}`);
 
     LocalFuncForreadFile({ inElement: LocalElement, inTo: LocalTo, inFrom: LocalFrom, inTypeName: LocalTypeName, inSampleString: LocalSampleString });
 
-    StartFuncReadFileFromModal({
-        inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
-        inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
-    });
 
-    StartFuncWriteFile({
-        inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
-        inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
-    });
-
-    StartFuncwriteFileFromModal({
-        inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
-        inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
-    });
-
-    StartFuncImportToFile({
-        inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
-        inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
-    });
-
-    StartFuncUploadToFile({
-        inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
-        inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
-    });
-
-    StartFuncReadFileById({
-        inElement: LocalElement, inFrom: LocalFrom, inTo: LocalTo,
-        inTypeName: LocalTypeName, inSampleString: LocalSampleString, inColumnsArray: LocalColumnsArray
-    });
-
-    fs.copyFileSync(`${LocalFrom}/ToConfig.json`, `${LocalTo}/${LocalElement}/Config.json`);
+    // fs.copyFileSync(`${LocalFrom}/ToConfig.json`, `${LocalTo}/${LocalElement}/Config.json`);
 };
 
 let LocalFuncForreadFile = ({ inElement, inFrom, inTo, inTypeName, inSampleString }) => {
-    let LocalFileName = "readFile.js";
+    let LocalFileName = "fileName.json";
+    let LocalSampleString = inSampleString;
     let LocalElement = inElement;
     let LocalTypeName = inTypeName;
     let LocalFrom = inFrom;
     let LocalTo = inTo;
-    let LocalSampleString = inSampleString;
 
-    let LocalFileData = fs.readFileSync(`${LocalFrom}/${LocalSampleString}/${LocalTypeName}/${LocalSampleString}${LocalFileName}`);
-    let LocalToFileData = LocalFileData.toString().replaceAll(LocalSampleString, LocalElement);
+    let LocalFileData = fs.readFileSync(`${LocalTo}/${LocalElement}/${LocalTypeName}/${LocalFileName}`);
+    let LocalfileNameJsonData = JSON.parse(LocalFileData);
+    LocalfileNameJsonData.fileName = `${LocalElement}.json`;
+    // let LocalToFileData = LocalFileData.toString().replaceAll(LocalSampleString, LocalfileNameJsonData);
+    console.log("LocalfileNameJsonData:", LocalfileNameJsonData);
+    fs.writeFileSync(`${LocalTo}/${LocalElement}/${LocalTypeName}/${LocalFileName}`, JSON.stringify(LocalfileNameJsonData));
 
-    fs.writeFileSync(`${LocalTo}/${LocalElement}/${LocalTypeName}/${LocalElement}${LocalFileName}`, LocalToFileData);
+    // let LocalFileData = fs.writeFileSync(`${LocalFrom}/${LocalSampleString}/${LocalTypeName}/${LocalFileName}`);
+
+    // fs.writeFileSync(`${LocalTo}/${LocalElement}/${LocalTypeName}/${LocalElement}${LocalFileName}`, LocalToFileData);
 };
 
 export { StartFunc };
