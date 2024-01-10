@@ -9,16 +9,15 @@ import { StartFunc as StartFuncFordataModals } from './FordataModals.js';
 import { StartFunc as StartFuncForDataColumns } from './ForDataColumns.js';
 
 import { StartFunc as StartFuncForRoutes } from './ForRoutes.js';
-import { StartFunc as StartFuncForMiddlewares } from './ForMiddlewares.js';
-import { StartFunc as StartFuncForControllers } from './ForControllers.js';
-import { StartFunc as StartFuncForRepos } from './ForRepos.js';
-import { StartFunc as StartFuncForDals } from './ForDals.js';
-// import { StartFunc as StartFuncForkLowDb } from './ForkLowDb.js';
-// import { StartFunc as StartFuncForRestClients } from './ForRestClients.js';
 
-import { StartFunc as StartFuncForkLowDb } from './ForkLowDb/EntryFile.js';
-import { StartFunc as StartFuncForRestClients } from './ForRestClients/EntryFile.js';
-import { StartFunc as StartFuncCopyDatas } from './CopyDatas/EntryFile.js';
+// import { StartFunc as StartFuncForMiddlewares } from './ForMiddlewares.js';
+// import { StartFunc as StartFuncForControllers } from './ForControllers.js';
+// import { StartFunc as StartFuncForRepos } from './ForRepos.js';
+// import { StartFunc as StartFuncForDals } from './ForDals.js';
+
+// import { StartFunc as StartFuncForkLowDb } from './ForkLowDb/EntryFile.js';
+// import { StartFunc as StartFuncForRestClients } from './ForRestClients/EntryFile.js';
+// import { StartFunc as StartFuncCopyDatas } from './CopyDatas/EntryFile.js';
 
 let CommonFromFolderName = "FromData";
 let CommonRoutes = [];
@@ -39,10 +38,8 @@ CommonFiles.forEach(function (file, index) {
 
 let StartFunc = ({ inFilesArray }) => {
     let LocalFilesArray = inFilesArray;
-    let CommonFrom = "srcByPath";
-    let CommonTo = "binByPath";
-
-    // StartFuncBaseDirs({ inTo: CommonTo });
+    let CommonFrom = "src";
+    let CommonTo = "bin";
 
     StartFuncForRoutesFile({
         inEndPointsArray: LocalFilesArray.map(element => element.FileName),
@@ -50,57 +47,67 @@ let StartFunc = ({ inFilesArray }) => {
     });
 
     LocalFilesArray.forEach(element => {
-        StartFuncBaseDirs({ inElement: element.FileName, inTo: CommonTo });
 
-        StartFuncFordataModals({
-            inElement: element.FileName,
-            inColumnsArray: element.Columns, inTo: CommonTo
-        });
+        try {
+            fs.cpSync(`${CommonFrom}/ksSample`, `${CommonTo}/${element.FileName}`, {
+                recursive: true,
+            });
+        } catch (error) {
+            console.log(error.message);
+        }
 
-        StartFuncForDataColumns({
-            inElement: element.FileName,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncBaseDirs({ inElement: element.FileName, inTo: CommonTo });
 
-        StartFuncForRoutes({
-            inElement: element.FileName,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncFordataModals({
+        //     inElement: element.FileName,
+        //     inColumnsArray: element.Columns, inTo: CommonTo
+        // });
 
-        StartFuncForMiddlewares({
-            inElement: element.FileName,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncForDataColumns({
+        //     inElement: element.FileName,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
 
-        StartFuncForControllers({
-            inElement: element.FileName, inColumnsArray: element.Columns,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncForRoutes({
+        //     inElement: element.FileName,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
 
-        StartFuncForRepos({
-            inElement: element.FileName, inColumnsArray: element.Columns,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncForMiddlewares({
+        //     inElement: element.FileName,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
 
-        StartFuncForDals({
-            inElement: element.FileName, inColumnsArray: element.Columns,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncForControllers({
+        //     inElement: element.FileName, inColumnsArray: element.Columns,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
 
-        StartFuncForkLowDb({
-            inElement: element.FileName, inColumnsArray: element.Columns,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncForRepos({
+        //     inElement: element.FileName, inColumnsArray: element.Columns,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
 
-        StartFuncForRestClients({
-            inElement: element.FileName, inColumnsArray: element.Columns,
-            inFrom: CommonFrom, inTo: CommonTo
-        });
+        // StartFuncForDals({
+        //     inElement: element.FileName, inColumnsArray: element.Columns,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
 
-        StartFuncCopyDatas({
-            inFromFolderName: CommonFromFolderName
-        });
+        // StartFuncForkLowDb({
+        //     inElement: element.FileName, inColumnsArray: element.Columns,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
+
+        // StartFuncForRestClients({
+        //     inElement: element.FileName, inColumnsArray: element.Columns,
+        //     inFrom: CommonFrom, inTo: CommonTo
+        // });
+
+        // StartFuncCopyDatas({
+        //     inFromFolderName: CommonFromFolderName
+        // });
     });
 };
 
+// console.log("CommonRoutes : ", CommonRoutes);
 StartFunc({ inFilesArray: CommonRoutes });
