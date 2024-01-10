@@ -4,7 +4,7 @@ import {
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncDal,
     GetFromModalFunc as GetFromModalFuncDal,
     GetIdFunc as GetIdFuncDal
-} from '../../{{ksSample}}Dal.js';
+} from '../../dals/getFuncs/EntryFile.js';
 
 let GetFunc = () => {
     return GetFuncDal();
