@@ -11,9 +11,10 @@ import {
 } from '../../DataColumns.js';
 
 let PostFunc = (req, res) => {
-    let LocalKeys = req.body['{{KSKeyName}}'];
+    let LocalKeys = req.body;
+    // let LocalBodyAsModal = ColumnsPullFunc()(LocalBodyData);
 
-    let LocalFromRepo = PostFuncRepo({ LocalKey1: LocalKeys });
+    let LocalFromRepo = PostFuncRepo({ inBodyKeys: LocalKeys });
     res.json(LocalFromRepo);
 };
 

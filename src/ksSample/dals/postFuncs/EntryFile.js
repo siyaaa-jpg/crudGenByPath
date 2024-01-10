@@ -5,8 +5,8 @@ import { StartFunc as StartFuncImportToFile } from '../../kLowDb/WriteFileList/I
 import { StartFunc as StartFuncUploadToFile } from '../../kLowDb/WriteFileList/UploadToFile.js';
 
 
-let PostFunc = ({ LocalKey1: LocalKeys }) => {
-    return StartFuncwriteFile({ LocalKey1: LocalKeys });
+let PostFunc = ({ inBodyKeys }) => {
+    return StartFuncwriteFile({ inBodyKeys });
 };
 
 let PostFromModalFunc = ({ LocalBodyAsModal }) => {

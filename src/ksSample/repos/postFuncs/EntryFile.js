@@ -1,13 +1,13 @@
 import {
     PostFunc as PostFuncDal,
-    PostFromModalFunc as PostFromModalFuncDal, 
+    PostFromModalFunc as PostFromModalFuncDal,
     PostUploadFunc as PostUploadFuncDal, PostGetSelectColumnsFunc as PostGetSelectColumnsFuncDal,
     PostUploadFromModalFunc as PostUploadFromModalFuncDal
 } from '../../dals/postFuncs/EntryFile.js';
 
 
-let PostFunc = ({ LocalKey1: LocalKeys }) => {
-    return PostFuncDal({ LocalKey1: LocalKeys });
+let PostFunc = ({ inBodyKeys }) => {
+    return PostFuncDal({ inBodyKeys });
 };
 
 let PostFromModalFunc = ({ LocalBodyAsModal }) => {
@@ -27,6 +27,6 @@ let PostGetSelectColumnsFunc = ({ LocalBodyAsModal }) => {
 };
 
 export {
-    PostFunc, PostFromModalFunc, 
-    PostUploadFunc, PostGetSelectColumnsFunc,PostUploadFromModalFunc
+    PostFunc, PostFromModalFunc,
+    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc
 };
