@@ -2,7 +2,11 @@ import { Sequelize, DataTypes } from "sequelize";
 
 let commonDbName = `sample.db`
 
-let StartFunc = async () => {
+
+let StartFunc = async ({inDataToInsert}) => {
+
+    let localInDataToInsert=inDataToInsert;
+    
     const sequelize = new Sequelize({
         dialect: 'sqlite',
         storage: commonDbName, // You can specify the path for your SQLite database file
@@ -23,9 +27,33 @@ let StartFunc = async () => {
         return result.dataValues
     })
 
+    const jane = Tickets.build({ Name: localInDataToInsert.Name});
+
+    // "jane" has not been saved to the database yet!
+    // You can change any of its properties here, and call save() later to persist them all at once.
+
+    await jane.save();
+
+    
+
     // sequelize.sync({ force: true });
-    console.log("users : ", records);
+    // console.log("users : ", records);
     return "";
 };
 
 export { StartFunc };
+
+// const db = require("./db")
+
+// // Insert a new user into the 'users' table
+// db.run(
+//   "INSERT INTO users (name, email) VALUES (?, ?)",
+//   ["John Doe", "john@example.com"],
+//   function (err) {
+//     if (err) {
+//       console.error("Error inserting data:", err)
+//     } else {
+//       console.log(`New record added with ID: ${this.lastID}`)
+//     }
+//   }
+// )

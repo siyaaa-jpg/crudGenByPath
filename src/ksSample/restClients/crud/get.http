@@ -1,5 +1,5 @@
 ###Get for as is data
-GET http://localhost:7016/src/ksSample
+GET http://localhost:7016/src/kssample
 
 
 ###Get for data transformed to Modal data
