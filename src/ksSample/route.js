@@ -5,7 +5,7 @@ var router = express.Router();
 import { router as routergetFuncs } from './routes/getFuncs/EntryFile.js';
 import { router as routerpostFuncs } from './routes/postFuncs/EntryFile.js';
 
-router.get('/', routergetFuncs);
-router.post('/', routerpostFuncs);
+router.use('/', routergetFuncs);
+router.use('/', routerpostFuncs);
 
 export { router };
