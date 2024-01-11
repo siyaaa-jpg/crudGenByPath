@@ -5,6 +5,7 @@ import { StartFunc as StartFuncForRoutesFile } from './ForRoutesFile/EntryFile.j
 import { StartFunc as StartFuncCopyDatas } from './CopyDatas/EntryFile.js';
 import { StartFunc as StartFuncForkLowDb } from './ForkLowDb/EntryFile.js';
 import { StartFunc as StartFuncForDataJson } from './ForDataJson.js';
+import { StartFunc as StartFuncForRestClients } from './ForRestClients/EntryFile.js';
 
 let CommonFromFolderName = "FromData";
 let CommonRoutes = [];
@@ -33,7 +34,6 @@ let StartFunc = ({ inFilesArray }) => {
     });
 
     LocalFilesArray.forEach(element => {
-
         try {
             fs.cpSync(`${CommonFrom}/ksSample`, `${CommonTo}/${element.FileName}`, {
                 recursive: true,
@@ -46,15 +46,16 @@ let StartFunc = ({ inFilesArray }) => {
             inElement: element.FileName, inColumnsArray: element.Columns,
             inFrom: CommonFrom, inTo: CommonTo
         });
+        
         StartFuncForDataJson({
             inElement: element.FileName, inColumnsArray: element.Columns,
             inFrom: CommonFrom, inTo: CommonTo
         });
 
-        // StartFuncForRestClients({
-        //     inElement: element.FileName, inColumnsArray: element.Columns,
-        //     inFrom: CommonFrom, inTo: CommonTo
-        // });
+        StartFuncForRestClients({
+            inElement: element.FileName, inColumnsArray: element.Columns,
+            inFrom: CommonFrom, inTo: CommonTo
+        });
 
         StartFuncCopyDatas({
             inFromFolderName: CommonFromFolderName

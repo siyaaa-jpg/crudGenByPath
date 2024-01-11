@@ -1,20 +1,42 @@
 import fs from 'fs';
-import { StartFunc as StartFuncForAllMethods } from './ForAllMethods.js';
 
-let StartFunc = ({ inElement, inColumnsArray, inFrom, inTo }) => {
+let StartFunc = ({ inElement, inTo }) => {
     let LocalElement = inElement;
-    let LocalTypeName = "restClients";
+    let LocalTypeName = "restClients/crud";
     let LocalTo = inTo;
-    let LocalFrom = inFrom;
-    let LocalFileName = "AllMethods.http";
 
-    fs.mkdirSync(`${LocalTo}/${LocalElement}/${LocalTypeName}`);
+    // let LocalFilePath = `${LocalTo}/${LocalElement}/${LocalTypeName}/get.http`;
 
-    let LocalFileData = fs.readFileSync(`${LocalFrom}/${LocalTypeName}/${LocalFileName}`);
+    // let LocalFileData = fs.readFileSync(LocalFilePath);
+    // let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LocalElement);
 
-    let LocalFromAllMethods = StartFuncForAllMethods({ inElement, LocalElement, inFileData: LocalFileData.toString(), inColumnsArray: [] });
+    // fs.writeFileSync(LocalFilePath, LocalFileDataReplaced);
+    LocalForGet({ inElement: LocalElement, inTo: LocalTo, inTypeName: LocalTypeName });
+    LocalForPost({ inElement: LocalElement, inTo: LocalTo, inTypeName: LocalTypeName });
+};
 
-    fs.writeFileSync(`${LocalTo}/${LocalElement}/${LocalTypeName}/${LocalFileName}`, LocalFromAllMethods);
+let LocalForGet = ({ inElement, inTo, inTypeName }) => {
+    let LocalElement = inElement;
+    let LocalTypeName = inTypeName;
+    let LocalTo = inTo;
+    let LocalFilePath = `${LocalTo}/${LocalElement}/${LocalTypeName}/get.http`;
+
+    let LocalFileData = fs.readFileSync(LocalFilePath);
+    let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LocalElement);
+
+    fs.writeFileSync(LocalFilePath, LocalFileDataReplaced);
+};
+
+let LocalForPost = ({ inElement, inTo, inTypeName }) => {
+    let LocalElement = inElement;
+    let LocalTypeName = inTypeName;
+    let LocalTo = inTo;
+    let LocalFilePath = `${LocalTo}/${LocalElement}/${LocalTypeName}/post.http`;
+
+    let LocalFileData = fs.readFileSync(LocalFilePath);
+    let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LocalElement);
+
+    fs.writeFileSync(LocalFilePath, LocalFileDataReplaced);
 };
 
 export { StartFunc };
