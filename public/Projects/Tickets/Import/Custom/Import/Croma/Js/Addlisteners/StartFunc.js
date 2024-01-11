@@ -3,7 +3,7 @@ import { StartFunc as StartFuncSelectedColumns } from "./SelectedColumns/StartFu
 import { StartFunc as StartFuncHelpModal } from "./HelpModal/StartFunc.js";
 
 let StartFunc = () => {
-    StartFuncUploadCsvData();
+    //StartFuncUploadCsvData();
     StartFuncSelectedColumns();
     StartFuncHelpModal();
 };
