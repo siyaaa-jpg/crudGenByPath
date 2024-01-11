@@ -109,20 +109,26 @@
     <div class="container-fluid">
 
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg m-4 ">
-            <div class="container">
-                <h1 id="HeadingId">Table Data</h1>
-
-                <table id="table" data-toolbar="#toolbar" data-search="true" data-pagination="true"
-                    data-searchable="true" data-show-columns="true" data-show-footer="true"
-                    data-show-columns-toggle-all="true" data-click-to-select="true" data-filter-control="true"
-                    data-show-export="true" data-detail-view="true" data-detail-formatter="detailFormatter"
-                    data-id-field="pk" data-show-toggle="true">
-                    <thead>
-                        <tr id="tableHeadRow">
-
-                        </tr>
-                    </thead>
-                </table>
+            <div class="card">
+                <div class="card-header">
+                    Create
+                </div>
+                <div class="card-body">
+                    <form id="FormId" class="row g-3 needs-validation" novalidate>
+                        <div class="col-md-4">
+                          <label for="validationCustom01" class="form-label">Name</label>
+                          <input type="text" class="form-control" name="UserName" id="NameId"  required>
+                          <div class="valid-feedback">
+                            Looks good!
+                          </div>
+                        </div>
+                        
+                        <div class="col-12">
+                          <button class="btn btn-primary" id="ButtonClickId" type="button">Submit</button>
+                        </div>
+                      </form>
+                </div>
+                
             </div>
         </main>
     </div>
