@@ -7,8 +7,8 @@ import {
     GetFromModalFunc,GetIdFunc
 } from '../../controllers/getFuncs/EntryFile.js';
 
-router.get('/', GetFunc);
 router.get('/FromModal', GetFromModalFunc);
+router.get('/', GetFunc);
 router.get('/FromModalUuid', GetFromModalUuidFunc);
 router.get('/FromModalUuidAndTS', GetFromModalUuidAndTSFunc);
 router.get('/DataOnly', GetDataOnlyFunc);

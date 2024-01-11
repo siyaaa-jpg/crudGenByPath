@@ -8,12 +8,13 @@ import {
 
 import {
     ColumnsPullFunc
-} from './{{ksSample}}DataColumns.js';
+} from '../../DataColumns.js';
 
 let PostFunc = (req, res) => {
-    let LocalKeys = req.body['{{KSKeyName}}'];
+    let LocalKeys = req.body;
+    // let LocalBodyAsModal = ColumnsPullFunc()(LocalBodyData);
 
-    let LocalFromRepo = PostFuncRepo({ LocalKey1: LocalKeys });
+    let LocalFromRepo = PostFuncRepo({ inBodyKeys: LocalKeys });
     res.json(LocalFromRepo);
 };
 
@@ -48,6 +49,6 @@ let PostGetSelectColumnsFunc = (req, res) => {
 };
 
 export {
-    PostFunc, PostFromModalFunc, 
-    PostUploadFunc, PostGetSelectColumnsFunc,PostUploadFromModalFunc
+    PostFunc, PostFromModalFunc,
+    PostUploadFunc, PostGetSelectColumnsFunc, PostUploadFromModalFunc
 };
