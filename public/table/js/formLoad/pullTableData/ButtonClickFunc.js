@@ -11,7 +11,7 @@ let LocalFetchFiles = async () => {
     let jVarLocalHeadingId = document.getElementById("HeadingId");
     jVarLocalHeadingId.innerHTML = jVarLocalTableName;
 
-    let jVarLocalFetchUrl = `/api/${jVarLocalTableName.split(".")[0]}`;
+    let jVarLocalFetchUrl = `/bin/${jVarLocalTableName.split(".")[0]}`;
     let response = await fetch(jVarLocalFetchUrl);
     let data = await response.json();
 

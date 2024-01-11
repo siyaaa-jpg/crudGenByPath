@@ -16,3 +16,9 @@ different ways to accomplish
 chmod +x boilerplate.sh
 sh boilerplate.sh
 npm run start
+
+purpose of this project
+
+read all the json files in this location :FromData
+
+and create crud for these files

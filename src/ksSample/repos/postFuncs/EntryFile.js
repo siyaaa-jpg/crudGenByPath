@@ -5,8 +5,17 @@ import {
     PostUploadFromModalFunc as PostUploadFromModalFuncDal
 } from '../../dals/postFuncs/EntryFile.js';
 
+import {
+    PostFunc as PostFuncDalsForSequelize
+} from '../../dalsForSequelize/postFuncs/EntryFile.js';
+
+import configJson from '../../../Config.json' assert { type: 'json' };
 
 let PostFunc = ({ inBodyKeys }) => {
+    if (configJson.isSequelize) {
+        return PostFuncDalsForSequelize({ inBodyKeys });
+    };
+
     return PostFuncDal({ inBodyKeys });
 };
 
