@@ -11,8 +11,9 @@ let StartFunc = ({ inElement, inColumnsArray, inFrom, inTo }) => {
     let LocalfileNameJsonData = JSON.parse(LocalFileData);
     LocalfileNameJsonData.fileName = `${LocalElement}.json`;
 
-    fs.writeFileSync(LocalFilePath, JSON.stringify(LocalfileNameJsonData));
+    const res = inColumnsArray.reduce((acc, curr) => (acc[curr] = '', acc), {});
 
+    fs.writeFileSync(LocalFilePath, JSON.stringify(res));
 };
 
 export { StartFunc };
