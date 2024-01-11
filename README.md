@@ -11,3 +11,8 @@ different ways to accomplish
     
     1.  npm i
     2.  node KCode\EntryFile.js
+  
+#for mac  
+chmod +x boilerplate.sh
+sh boilerplate.sh
+npm run start
