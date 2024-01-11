@@ -2,7 +2,7 @@ import { Sequelize, DataTypes } from "sequelize";
 
 let commonDbName = `sample.db`
 
-let StartFunc = ({ inDataToInsert }) => {
+let StartFunc = async () => {
     const sequelize = new Sequelize({
         dialect: 'sqlite',
         storage: commonDbName, // You can specify the path for your SQLite database file
@@ -17,8 +17,14 @@ let StartFunc = ({ inDataToInsert }) => {
     }, { freezeTableName: true }
     );
 
-   // sequelize.sync({ force: true });
-    console.log("Tickets : ", Tickets);
+    const users = await Tickets.findAll();
+
+    const records = users.map(function (result) {
+        return result.dataValues
+    })
+
+    // sequelize.sync({ force: true });
+    console.log("users : ", records);
     return "";
 };
 

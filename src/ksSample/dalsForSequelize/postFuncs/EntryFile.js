@@ -1,6 +1,6 @@
 import { StartFunc as StartFuncwriteFile } from '../../kSequelize/WriteFileList/writeFile.js';
 
-let PostFunc = ({ inBodyKeys }) => {
+let PostFunc = async ({ inBodyKeys }) => {
     return StartFuncwriteFile({ inDataToInsert: inBodyKeys });
 };
 
