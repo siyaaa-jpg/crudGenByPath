@@ -1,5 +1,6 @@
 import fs from "fs";
 
+let writefilepath="KData/JSON/316/sample.json"
 let rowsNeeded = 10000;
 let NewArrau = [];
 
@@ -14,11 +15,20 @@ function uuidv4() {
     });
 };
 
+function generateRandomNumber() {
+    // Generate a random 10-digit number
+    const min = 1000000000; // 10^9
+    const max = 9999999999; // 10^10 - 1
+    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+  
+    return randomNumber;
+}
+
 
 for (let i = 0; i < rowsNeeded; i++) {
-    NewArrau.push({ UuId: uuidv4(), name: genRand(6) })
+    NewArrau.push({ UuId: uuidv4(), name: genRand(6), number: generateRandomNumber() })
 
 };
 
 
-fs.writeFileSync("src/ksSample/Data.json",JSON.stringify(NewArrau));
+fs.writeFileSync(writefilepath,JSON.stringify(NewArrau));
