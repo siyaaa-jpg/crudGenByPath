@@ -11,12 +11,12 @@ import {
 
 import configJson from '../../../Config.json' assert { type: 'json' };
 
-let PostFunc = ({ inBodyKeys }) => {
+let PostFunc = (inModalObject) => {
     if (configJson.isSequelize) {
-        return PostFuncDalsForSequelize({ inBodyKeys });
+        return PostFuncDalsForSequelize(inModalObject);
     };
 
-    return PostFuncDal({ inBodyKeys });
+    return PostFuncDal({ inBodyKeys: inModalObject });
 };
 
 let PostFromModalFunc = ({ LocalBodyAsModal }) => {

@@ -10,11 +10,14 @@ import {
     ColumnsPullFunc
 } from '../../DataColumns.js';
 
+import { ClassSample } from '../../ModalClass.js';
+
 let PostFunc = (req, res) => {
     let LocalKeys = req.body;
+    let LocalModalObject = new ClassSample({ ...req.body });
     // let LocalBodyAsModal = ColumnsPullFunc()(LocalBodyData);
 
-    let LocalFromRepo = PostFuncRepo({ inBodyKeys: LocalKeys });
+    let LocalFromRepo = PostFuncRepo({ ...LocalModalObject });
     res.json(LocalFromRepo);
 };
 

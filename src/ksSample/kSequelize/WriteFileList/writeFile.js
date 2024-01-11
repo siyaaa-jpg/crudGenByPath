@@ -1,12 +1,13 @@
 import { Sequelize, DataTypes } from "sequelize";
 
+import { ClassSample } from '../../ModalClass.js';
+
 let commonDbName = `sample.db`
 
+let StartFunc = async ({ inDataToInsert }) => {
 
-let StartFunc = async ({inDataToInsert}) => {
+    let localInDataToInsert = new ClassSample(inDataToInsert);
 
-    let localInDataToInsert=inDataToInsert;
-    
     const sequelize = new Sequelize({
         dialect: 'sqlite',
         storage: commonDbName, // You can specify the path for your SQLite database file
@@ -27,14 +28,14 @@ let StartFunc = async ({inDataToInsert}) => {
         return result.dataValues
     })
 
-    const jane = Tickets.build({ Name: localInDataToInsert.Name});
+    const jane = Tickets.build(localInDataToInsert);
 
     // "jane" has not been saved to the database yet!
     // You can change any of its properties here, and call save() later to persist them all at once.
 
     await jane.save();
 
-    
+
 
     // sequelize.sync({ force: true });
     // console.log("users : ", records);
