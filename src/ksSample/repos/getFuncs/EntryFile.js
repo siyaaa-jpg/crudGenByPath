@@ -6,7 +6,17 @@ import {
     GetIdFunc as GetIdFuncDal
 } from '../../dals/getFuncs/EntryFile.js';
 
+import {
+    GetFunc as GetFuncDalsForSequelize
+} from '../../dalsForSequelize/getFuncs/EntryFile.js';
+
+import configJson from '../../../Config.json' assert { type: 'json' };
+
 let GetFunc = () => {
+    if (configJson.isSequelize) {
+        return GetFuncDalsForSequelize();
+    };
+
     return GetFuncDal();
 };
 

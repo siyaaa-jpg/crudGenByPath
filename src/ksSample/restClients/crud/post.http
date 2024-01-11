@@ -6,7 +6,7 @@ POST http://localhost:7016/src/kssample
 content-type: application/json
 
 {
-"name":"sree",
+"Name":"Dhanush",
 "ContactNumber":8341177771
 }
 
