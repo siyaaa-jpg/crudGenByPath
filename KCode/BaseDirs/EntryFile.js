@@ -1,10 +1,9 @@
 import fs from 'fs';
 
-let StartFunc = ({ inElement, inTo }) => {
-    let LocalElement = inElement;
+let StartFunc = ({ inTo }) => {
     let LocalTo = inTo;
 
-    fs.mkdirSync(`${LocalTo}/${LocalElement}`);
+    fs.mkdirSync("bin");
 };
 
 export { StartFunc };

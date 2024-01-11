@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+import { StartFunc as StartFuncBaseDirs } from './BaseDirs/EntryFile.js';
 import { StartFunc as StartFuncForRoutesFile } from './ForRoutesFile/EntryFile.js';
 import { StartFunc as StartFuncCopyDatas } from './CopyDatas/EntryFile.js';
 import { StartFunc as StartFuncForkLowDb } from './ForkLowDb/EntryFile.js';
@@ -28,6 +29,8 @@ let StartFunc = ({ inFilesArray }) => {
     let CommonFrom = "src";
     let CommonTo = "bin";
 
+    StartFuncBaseDirs({});
+
     StartFuncForRoutesFile({
         inEndPointsArray: LocalFilesArray.map(element => element.FileName),
         inFrom: CommonFrom, inTo: CommonTo
@@ -46,7 +49,7 @@ let StartFunc = ({ inFilesArray }) => {
             inElement: element.FileName, inColumnsArray: element.Columns,
             inFrom: CommonFrom, inTo: CommonTo
         });
-        
+
         StartFuncForDataJson({
             inElement: element.FileName, inColumnsArray: element.Columns,
             inFrom: CommonFrom, inTo: CommonTo
