@@ -29,7 +29,7 @@ let StartFunc = ({ inFilesArray }) => {
     let CommonFrom = "src";
     let CommonTo = "bin";
 
-    StartFuncBaseDirs({});
+    StartFuncBaseDirs();
 
     StartFuncForRoutesFile({
         inEndPointsArray: LocalFilesArray.map(element => element.FileName),

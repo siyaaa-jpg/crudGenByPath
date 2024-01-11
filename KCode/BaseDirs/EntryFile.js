@@ -1,9 +1,11 @@
 import fs from 'fs';
 
-let StartFunc = ({ inTo }) => {
-    let LocalTo = inTo;
+let StartFunc = () => {
+    try {
+        fs.mkdirSync("bin");
+    } catch (error) {
 
-    fs.mkdirSync("bin");
+    };
 };
 
 export { StartFunc };
