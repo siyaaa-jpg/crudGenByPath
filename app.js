@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
     res.json("kkhhhhhhh")
 });
 
-app.use('/api', routerbinByPath);
+app.use('/bin', routerbinByPath);
 app.use('/config', routerboilerPlate);
 app.use('/src', routerFromSrc);
 
