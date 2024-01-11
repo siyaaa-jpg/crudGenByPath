@@ -1,5 +1,5 @@
-if not exist "binByPath\" mkdir binByPath
+if not exist "bin\" mkdir bin
 
 call npm i
 
-call node ForsrcByPath\EntryFile.js
+call node KCode\EntryFile.js
