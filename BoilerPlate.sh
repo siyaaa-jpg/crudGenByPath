@@ -1,5 +1,5 @@
-mkdir binByPath
+mkdir bin
 
 npm i
 
-node ForsrcByPath/EntryFile.js
+node KCode/EntryFile.js
