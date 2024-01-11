@@ -2,7 +2,7 @@
 
 let StartFunc = async () => {
     // let jVarLocalFetchHeaders = StartFuncFetchHeaders();
-    let jVarLocalFetchUrl = `/api/Tickets`;
+    let jVarLocalFetchUrl = `/bin/Tickets`;
     let response = await fetch(jVarLocalFetchUrl);
     let data = await response.json();
 
