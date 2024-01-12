@@ -38,9 +38,12 @@ let GetFromModalUuidAndTSFunc = () => {
     return StartFuncReadFileFromModal();
 };
 
+let GetBodyCheckFunc = () => {
+    return StartFuncreadFile();
+};
 
 export {
     GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    GetIdFunc
+    GetIdFunc,GetBodyCheckFunc
 };

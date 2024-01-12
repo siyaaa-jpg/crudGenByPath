@@ -18,11 +18,11 @@ let StartFunc = ({ inDataToInsert }) => {
     let LocalDataWithUuid = LocalFunc({ inDataToInsert: LocalinDataToInsert });
 
     db.data.push(LocalDataWithUuid);
-    db.write();
+    let LocalFromWrite = db.write();
 
     LocalReturnData.KTF = true;
 
-    return LocalReturnData;
+    return LocalDataWithUuid.UuId;
 };
 
 const LocalFunc = ({ inDataToInsert }) => {

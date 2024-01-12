@@ -5,7 +5,6 @@ import { ClassSample } from '../../ModalClass.js';
 let commonDbName = `sample.db`
 
 let StartFunc = async ({ inDataToInsert }) => {
-
     let localInDataToInsert = new ClassSample(inDataToInsert);
 
     const sequelize = new Sequelize({
@@ -14,7 +13,6 @@ let StartFunc = async ({ inDataToInsert }) => {
     });
 
     const Tickets = sequelize.define('sample', {
-        // Define columns in the Customer table
         Name: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -28,18 +26,11 @@ let StartFunc = async ({ inDataToInsert }) => {
         return result.dataValues
     })
 
-    const jane = Tickets.build(localInDataToInsert);
+    const LocalFromBuild = Tickets.build(localInDataToInsert);
 
-    let localNewId=await jane.save();
-    console.log(localNewId.Name)
+    let localNewAfterSave = await LocalFromBuild.save();
 
-    await jane.save();
-
-
-
-    // sequelize.sync({ force: true });
-    // console.log("users : ", records);
-    return await localNewId.Name;
+    return await localNewAfterSave.id;
 };
 
 export { StartFunc };

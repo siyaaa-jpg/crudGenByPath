@@ -1,13 +1,13 @@
 import {
-    GetFunc as GetFuncRepo,GetDataOnlyFunc as GetDataOnlyFuncRepo,
+    GetFunc as GetFuncRepo, GetDataOnlyFunc as GetDataOnlyFuncRepo,
     GetFromModalUuidFunc as GetFromModalUuidFuncRepo,
     GetFromModalUuidAndTSFunc as GetFromModalUuidAndTSFuncRepo, GetFromModalFunc as GetFromModalFuncRepo,
-    GetIdFunc as GetIdFuncRepo
+    GetIdFunc as GetIdFuncRepo, GetBodyCheckFunc as GetBodyCheckFuncRepo
 } from '../../repos/getFuncs/EntryFile.js';
 
 
 let GetFunc = async (req, res) => {
-    let LocalFromRepo =await GetFuncRepo();
+    let LocalFromRepo = await GetFuncRepo();
     res.json(LocalFromRepo);
 };
 
@@ -16,11 +16,10 @@ let GetDataOnlyFunc = (req, res) => {
     res.json(LocalFromRepo);
 };
 let GetIdFunc = (req, res) => {
-    let LocalParams=req.params;
-    let LocalIfFromParam=LocalParams.id;
+    let LocalParams = req.params;
+    let LocalIfFromParam = LocalParams.id;
 
-    console.log("LocalParams : ",LocalParams);
-    let LocalFromRepo = GetIdFuncRepo({inId:LocalIfFromParam});
+    let LocalFromRepo = GetIdFuncRepo({ inId: LocalIfFromParam });
     res.json(LocalFromRepo);
 };
 
@@ -39,9 +38,14 @@ let GetFromModalUuidAndTSFunc = (req, res) => {
     res.json(LocalFromRepo);
 };
 
+let GetBodyCheckFunc = async (req, res) => {
+    let LocalFromRepo = await GetBodyCheckFuncRepo();
+    res.json(LocalFromRepo);
+};
 
 export {
-    GetFunc,GetDataOnlyFunc,GetFromModalFunc,
+    GetFunc, GetDataOnlyFunc, GetFromModalFunc,
     GetFromModalUuidFunc, GetFromModalUuidAndTSFunc,
-    GetIdFunc
+    GetIdFunc,
+    GetBodyCheckFunc
 };
