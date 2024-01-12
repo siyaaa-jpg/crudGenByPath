@@ -1,5 +1,5 @@
 ###Get for as is data
-GET http://localhost:7016/src/kssample
+GET http://localhost:7016/src/ksSample
 
 
 ###Get for data transformed to Modal data
@@ -7,11 +7,11 @@ GET http://localhost:7016/src/ksSample/FromModal
 
 
 ###Get for data transformed to Modal data and Uuid also
-GET http://localhost:7016/src/kssample/FromModalUuid
+GET http://localhost:7016/src/ksSample/FromModalUuid
 
 
 ###Get for data transformed to Modal data , Uuid and timeStamp also
-GET http://localhost:7016/src/kssample/FromModalUuidAndTS
+GET http://localhost:7016/src/ksSample/FromModalUuidAndTS
 
 ###Get for data from json file as array only
 GET http://localhost:7016/src/ksSample/DataOnly

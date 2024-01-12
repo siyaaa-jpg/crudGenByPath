@@ -5,14 +5,9 @@ let StartFunc = ({ inElement, inTo }) => {
     let LocalTypeName = "restClients/crud";
     let LocalTo = inTo;
 
-    // let LocalFilePath = `${LocalTo}/${LocalElement}/${LocalTypeName}/get.http`;
-
-    // let LocalFileData = fs.readFileSync(LocalFilePath);
-    // let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LocalElement);
-
-    // fs.writeFileSync(LocalFilePath, LocalFileDataReplaced);
     LocalForGet({ inElement: LocalElement, inTo: LocalTo, inTypeName: LocalTypeName });
     LocalForPost({ inElement: LocalElement, inTo: LocalTo, inTypeName: LocalTypeName });
+    LocalForDelete({ inElement: LocalElement, inTo: LocalTo, inTypeName: LocalTypeName });
 };
 
 let LocalForGet = ({ inElement, inTo, inTypeName }) => {
@@ -23,8 +18,9 @@ let LocalForGet = ({ inElement, inTo, inTypeName }) => {
 
     let LocalFileData = fs.readFileSync(LocalFilePath);
     let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LocalElement);
+    let LocalBinReplaced = LocalFileDataReplaced.replaceAll("/src", "/bin");
 
-    fs.writeFileSync(LocalFilePath, LocalFileDataReplaced);
+    fs.writeFileSync(LocalFilePath, LocalBinReplaced);
 };
 
 let LocalForPost = ({ inElement, inTo, inTypeName }) => {
@@ -35,8 +31,22 @@ let LocalForPost = ({ inElement, inTo, inTypeName }) => {
 
     let LocalFileData = fs.readFileSync(LocalFilePath);
     let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LocalElement);
+    let LocalBinReplaced = LocalFileDataReplaced.replaceAll("/src", "/bin");
 
-    fs.writeFileSync(LocalFilePath, LocalFileDataReplaced);
+    fs.writeFileSync(LocalFilePath, LocalBinReplaced);
+};
+
+let LocalForDelete = ({ inElement, inTo, inTypeName }) => {
+    let LocalElement = inElement;
+    let LocalTypeName = inTypeName;
+    let LocalTo = inTo;
+    let LocalFilePath = `${LocalTo}/${LocalElement}/${LocalTypeName}/delete.http`;
+
+    let LocalFileData = fs.readFileSync(LocalFilePath);
+    let LocalFileDataReplaced = LocalFileData.toString().replaceAll("ksSample", LocalElement);
+    let LocalBinReplaced = LocalFileDataReplaced.replaceAll("/src", "/bin");
+
+    fs.writeFileSync(LocalFilePath, LocalBinReplaced);
 };
 
 export { StartFunc };
