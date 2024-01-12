@@ -1,7 +1,7 @@
 import { StartFunc as StartFuncreadFile } from '../../kSequelize/ReadFileList/readFile.js'; 
 
-let GetFunc = () => {
-    return StartFuncreadFile();
+let GetFunc = async () => {
+    return await StartFuncreadFile();
 };
 
 export {

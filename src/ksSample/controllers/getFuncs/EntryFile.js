@@ -6,8 +6,8 @@ import {
 } from '../../repos/getFuncs/EntryFile.js';
 
 
-let GetFunc = (req, res) => {
-    let LocalFromRepo = GetFuncRepo();
+let GetFunc = async (req, res) => {
+    let LocalFromRepo =await GetFuncRepo();
     res.json(LocalFromRepo);
 };
 
