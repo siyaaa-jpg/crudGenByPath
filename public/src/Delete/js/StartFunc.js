@@ -4,8 +4,9 @@ import { StartFunc as StartFuncAddlisteners } from "./Addlisteners/StartFunc.js"
 
 const StartFunc = () => {
     // StartFuncNavMenu();
-    StartFuncformLoad().then(
+    StartFuncformLoad().then(() => {
         StartFuncAddlisteners()
+    }
     );
 };
 
