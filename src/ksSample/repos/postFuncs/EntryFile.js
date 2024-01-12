@@ -11,9 +11,9 @@ import {
 
 import configJson from '../../../Config.json' assert { type: 'json' };
 
-let PostFunc = (inModalObject) => {
+let PostFunc = async (inModalObject) => {
     if (configJson.isSequelize) {
-        return PostFuncDalsForSequelize(inModalObject);
+        return await PostFuncDalsForSequelize(inModalObject);
     };
 
     return PostFuncDal({ inBodyKeys: inModalObject });

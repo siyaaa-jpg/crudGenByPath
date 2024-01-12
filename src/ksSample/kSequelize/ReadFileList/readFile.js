@@ -24,8 +24,8 @@ let StartFunc = async () => {
     })
 
     // sequelize.sync({ force: true });
-    console.log("users : ", records);
-    return "";
+    // console.log("users : ", records);
+    return await records;
 };
 
 export { StartFunc };

@@ -12,9 +12,9 @@ import {
 
 import configJson from '../../../Config.json' assert { type: 'json' };
 
-let GetFunc = () => {
+let GetFunc = async () => {
     if (configJson.isSequelize) {
-        return GetFuncDalsForSequelize();
+        return await GetFuncDalsForSequelize();
     };
 
     return GetFuncDal();

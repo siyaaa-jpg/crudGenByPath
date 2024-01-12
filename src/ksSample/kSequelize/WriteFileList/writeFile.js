@@ -39,7 +39,7 @@ let StartFunc = async ({ inDataToInsert }) => {
 
     // sequelize.sync({ force: true });
     // console.log("users : ", records);
-    return "";
+    return await jane;
 };
 
 export { StartFunc };

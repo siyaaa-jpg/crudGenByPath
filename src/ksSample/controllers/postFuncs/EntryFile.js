@@ -12,12 +12,12 @@ import {
 
 import { ClassSample } from '../../ModalClass.js';
 
-let PostFunc = (req, res) => {
+let PostFunc = async (req, res) => {
     let LocalKeys = req.body;
     let LocalModalObject = new ClassSample({ ...req.body });
     // let LocalBodyAsModal = ColumnsPullFunc()(LocalBodyData);
 
-    let LocalFromRepo = PostFuncRepo({ ...LocalModalObject });
+    let LocalFromRepo =await PostFuncRepo({ ...LocalModalObject });
     res.json(LocalFromRepo);
 };
 
