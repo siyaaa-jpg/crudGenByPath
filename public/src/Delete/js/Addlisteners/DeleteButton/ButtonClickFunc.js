@@ -1,16 +1,13 @@
-import { StartFunc as StartFuncCheckBeforeFetch } from "./CheckBeforeFetch.js";
 import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
+import { StartFunc as StartFuncFetchFunc } from "./FetchFunc.js";
+
 
 let StartFunc = async ({ inevent }) => {
-    console.log("kkkkkkkkkkkkk");
     let jVarLocalCurrentTarget = inevent.currentTarget;
-
     let jVarLocaluuid = jVarLocalCurrentTarget.dataset.uuid;
-    console.log("kkkkkkkkkkkkk", jVarLocaluuid);
 
-    if (StartFuncCheckBeforeFetch()) {
+    let jVarLocalFetchData = await StartFuncFetchFunc({ UuId: jVarLocaluuid });
+    StartFuncAfterFetch({ inFromFetch: jVarLocalFetchData });
 
-        StartFuncAfterFetch({ inFromFetch: jsonArray });
-    };
 };
 export { StartFunc };
