@@ -30,8 +30,8 @@ let StartFunc = async ({ inDataToInsert }) => {
 
     const jane = Tickets.build(localInDataToInsert);
 
-    // "jane" has not been saved to the database yet!
-    // You can change any of its properties here, and call save() later to persist them all at once.
+    let localNewId=await jane.save();
+    console.log(localNewId.Name)
 
     await jane.save();
 
@@ -39,22 +39,8 @@ let StartFunc = async ({ inDataToInsert }) => {
 
     // sequelize.sync({ force: true });
     // console.log("users : ", records);
-    return await jane;
+    return await localNewId.Name;
 };
 
 export { StartFunc };
 
-// const db = require("./db")
-
-// // Insert a new user into the 'users' table
-// db.run(
-//   "INSERT INTO users (name, email) VALUES (?, ?)",
-//   ["John Doe", "john@example.com"],
-//   function (err) {
-//     if (err) {
-//       console.error("Error inserting data:", err)
-//     } else {
-//       console.log(`New record added with ID: ${this.lastID}`)
-//     }
-//   }
-// )
