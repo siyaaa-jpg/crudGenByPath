@@ -11,7 +11,9 @@ router.get('/files', (req, res) => {
 });
 
 router.get('/dataSource', (req, res) => {
-    let mySequelizeJsonData = myJson.isSequelize;
+    let mySequelizeJsonData = {};
+    mySequelizeJsonData.isSequelize=myJson.isSequelize;
+    
     res.json(mySequelizeJsonData);
 });
 
