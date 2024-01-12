@@ -1,6 +1,9 @@
 import { StartFunc as StartFuncPortListen } from "./PortListen.js";
 
 // k
+import { router as routerbinByPath } from "./bin/routes.js";
+
+import { router as routerboilerPlate } from "./boilerPlate/config.js";
 
 import { router as routerFromSrc } from "./src/routes.js";
 
@@ -26,8 +29,8 @@ app.get('/', (req, res) => {
     res.json("kkhhhhhhh")
 });
 
-// app.use('/bin', routerbinByPath);
-// app.use('/config', routerboilerPlate);
+app.use('/bin', routerbinByPath);
+app.use('/config', routerboilerPlate);
 app.use('/src', routerFromSrc);
 
 function normalizePort(val) {
