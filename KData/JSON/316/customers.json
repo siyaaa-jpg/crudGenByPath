@@ -1,42 +1,6 @@
 [
-  {
-    "CustomerName": "Keshav",
-    "CustomerMobile": 9848163021
-  },
-  {
-    "name": "sree",
-    "ContactNumber": 8341177771,
-    "UuId": "2e94d00b-ee75-462f-bd97-2793f28e63f4",
-    "DateTime": "2024-01-11T14:46:01.487Z"
-  },
-  {
-    "name": "sree",
-    "ContactNumber": 8341177771,
-    "UuId": "3f1c636b-ea18-4d82-99a4-0c4e496433d4",
-    "DateTime": "2024-01-11T14:46:43.963Z"
-  },
-  {
-    "name": "sree",
-    "ContactNumber": 8341177771,
-    "UuId": "48bf417a-ccbf-41f3-94dc-b92d924942e2",
-    "DateTime": "2024-01-11T14:48:59.851Z"
-  },
-  {
-    "name": "sree",
-    "ContactNumber": 8341177771,
-    "UuId": "d67bbaa9-35f8-48c9-b417-af1e3dff2566",
-    "DateTime": "2024-01-11T14:49:51.367Z"
-  },
-  {
-    "name": "sree",
-    "ContactNumber": 8341177771,
-    "UuId": "794c94ea-d993-47b2-b140-8c51416e269c",
-    "DateTime": "2024-01-11T14:50:15.304Z"
-  },
-  {
-    "name": "sree",
-    "ContactNumber": 8341177771,
-    "UuId": "bd94d2a6-0dad-4dda-9e88-1c6550ea0b01",
-    "DateTime": "2024-01-11T14:50:27.882Z"
-  }
+    {
+        "CustomerName": "Keshav",
+        "CustomerMobile": 9848163021
+    }
 ]
