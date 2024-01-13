@@ -1,44 +1,30 @@
 import { LowSync } from 'lowdb'
 import { JSONFileSync } from 'lowdb/node'
 import Configjson from '../../../Config.json' assert { type: 'json' };
-
 import fileNameJson from '../fileName.json' assert { type: 'json' };
 
-let StartFunc = ({ Id }) => {
-    let LocalId = Id;
-    let LocalReturnData = { KTF: false, JSONFolderPath: "", CreatedLog: {} };
-
-    LocalReturnData.KTF = false;
-
-    LocalReturnData.UserDataFilePath = `${Configjson.JsonPath}/${fileNameJson.fileName}`;
-
+let StartFunc = ({ inId }) => {
+    let LocalId = inId;
+    let UserDataFilePath = `${Configjson.JsonPath}/${fileNameJson.fileName}`;
     const defaultData = { error: "From KLowDb" }
 
-    const db = new LowSync(new JSONFileSync(LocalReturnData.UserDataFilePath), defaultData);
+    const db = new LowSync(new JSONFileSync(UserDataFilePath), defaultData);
     db.read();
     let LocalarrayOfObjects = db.data;
-    let LocalArrayAfterUuid = deleteObjectById({ arrayOfObjects: LocalarrayOfObjects, id: LocalId });
-
-    // db.data.push(...LocalArrayAfterUuid);
+    let LocalArrayAfterDelete = deleteObjectById({ inCollection: LocalarrayOfObjects, inId: LocalId });
+    db.data = LocalArrayAfterDelete;
     db.write();
 
-    LocalReturnData = LocalArrayAfterUuid.length;
-
-    return LocalReturnData;
+    return true;
 };
 
-let deleteObjectById = ({ arrayOfObjects, id }) => {
+let deleteObjectById = ({ inCollection, inId }) => {
 
-    const index = arrayOfObjects.findIndex(obj => obj.UuId === id);
+    let LocalCollection = inCollection;
+    let LocalId = inId;
+    LocalCollection.splice(LocalCollection.findIndex(a => a.UuId === LocalId), 1)
 
-    if (index !== -1) {
-        delete arrayOfObjects[index];
-        arrayOfObjects = arrayOfObjects.filter(obj => obj !== null && obj !== undefined);
-        
-        return arrayOfObjects;
-    } else {
-        console.log(`Object with id ${id} not found.`);
-    }
+    return LocalCollection;
 }
 
 export { StartFunc };
