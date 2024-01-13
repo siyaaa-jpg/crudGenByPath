@@ -1,7 +1,11 @@
+import { StartFunc as StartFuncTableHead } from "./TableHead.js";
+
 let StartFunc = ({ inFromFetch }) => {
     var $table = $('#table');
-    console.log("inFromFetch : ", inFromFetch);
     $table.bootstrapTable('destroy')
+
+    StartFuncTableHead();
+
     $table.bootstrapTable({ data: inFromFetch });
 };
 

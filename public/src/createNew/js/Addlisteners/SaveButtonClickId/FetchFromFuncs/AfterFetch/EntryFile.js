@@ -1,5 +1,5 @@
 
-let StartFunc = ({ inDataToShow }) => {
+let StartFunc = () => {
     window.location.href = "";
     console.log("inDataToShow::", inDataToShow);
 };
