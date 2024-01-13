@@ -12,21 +12,23 @@ router.get('/files', (req, res) => {
 
 router.get('/dataSource', (req, res) => {
     let mySequelizeJsonData = {};
-    mySequelizeJsonData.isSequelize=myJson.isSequelize;
-    
+    mySequelizeJsonData.isSequelize = myJson.isSequelize;
+
     res.json(mySequelizeJsonData);
 });
 
 let LocalFuncForFiles = () => {
-    let LocalFilesPath = "KData/JSON/316";
-    let CommonFiles = fs.readdirSync(LocalFilesPath);
-    let LocalFilesArray = [];
+    if (myJson.isSequelize === false) {
+        let LocalFilesPath = "KData/JSON/316";
+        let CommonFiles = fs.readdirSync(LocalFilesPath);
+        let LocalFilesArray = [];
 
-    CommonFiles.forEach(function (file, index) {
-        LocalFilesArray.push(file);
-    });
+        CommonFiles.forEach(function (file, index) {
+            LocalFilesArray.push(file);
+        });
 
-    return LocalFilesArray;
+        return LocalFilesArray;
+    };
 };
 
 export { router };
