@@ -1,8 +1,9 @@
 // import { StartFunc as StartFuncNavMenu } from "./NavMenu/EntryFile.js";
-import { StartFunc as StartFuncAddlisteners } from "./Addlisteners/EntryFile.js";
+import { StartFunc as StartFuncformLoad } from "./formLoad/pullTableData/ButtonClickFunc.js";
 
 const StartFunc = () => {
-    StartFuncAddlisteners();
+    // StartFuncNavMenu();
+    StartFuncformLoad().then();
 };
 
 StartFunc();
