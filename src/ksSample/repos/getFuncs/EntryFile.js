@@ -21,7 +21,11 @@ let GetFunc = async () => {
     return GetFuncDal();
 };
 
-let GetDataOnlyFunc = () => {
+let GetDataOnlyFunc = async () => {
+    if (configJson.isSequelize) {
+        return await GetFuncDalsForSequelize();
+    };
+
     return GetDataOnlyFuncDal();
 };
 let GetIdFunc = ({ inId }) => {

@@ -1,15 +1,18 @@
 import { Sequelize, DataTypes } from "sequelize";
 
 import { ClassSample } from '../../ModalClass.js';
+import Configjson from '../../../Config.json' assert { type: 'json' };
 
-let commonDbName = `sample.db`
+let commonJonPth = Configjson.JsonPath;
+let commonDbName = Configjson.DbName;
+
 
 let StartFunc = async ({ inDataToInsert }) => {
     let localInDataToInsert = new ClassSample(inDataToInsert);
 
     const sequelize = new Sequelize({
         dialect: 'sqlite',
-        storage: commonDbName, // You can specify the path for your SQLite database file
+        storage: `${commonJonPth}/${commonDbName}`, // You can specify the path for your SQLite database file
     });
 
     const Tickets = sequelize.define('sample', {
