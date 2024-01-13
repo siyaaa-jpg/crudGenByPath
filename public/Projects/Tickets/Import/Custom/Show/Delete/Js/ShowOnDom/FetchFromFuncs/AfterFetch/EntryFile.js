@@ -1,4 +1,4 @@
-// import { StartFunc as StartFuncTableHead } from "./TableHead.js";
+import { StartFunc as StartFuncTableHead } from "./TableHead.js";
 
 let StartFunc = ({ inFromFetch }) => {
     console.log("inFromFetch:",inFromFetch);
