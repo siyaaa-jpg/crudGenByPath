@@ -1,4 +1,4 @@
 {
     "JsonPath": "KData/JSON/316",
-    "isSequelize": false
+    "isSequelize": true
 }

@@ -5,8 +5,15 @@ import myJson from '../src/Config.json' assert {type: 'json'};
 
 var router = express.Router();
 
-router.get('/files', (req, res) => {
+router.get('/files', (req, res) => {    
+    if(myJson.isSequelize){
+        let LocalTablesArray= LocalFuncForSequelize();
+        res.end();
+        return  
+    };
+
     let LocalFilesArray = LocalFuncForFiles();
+
     res.json(LocalFilesArray);
 });
 
@@ -18,17 +25,38 @@ router.get('/dataSource', (req, res) => {
 });
 
 let LocalFuncForFiles = () => {
-    if (myJson.isSequelize === false) {
-        let LocalFilesPath = "KData/JSON/316";
-        let CommonFiles = fs.readdirSync(LocalFilesPath);
-        let LocalFilesArray = [];
 
-        CommonFiles.forEach(function (file, index) {
+    let LocalFilesPath = "KData/JSON/316";
+    let CommonFiles = fs.readdirSync(LocalFilesPath);
+    let LocalFilesArray = [];
+
+    CommonFiles.forEach(function (file, index) {
+        let result = file.endsWith(".json");
+        if (result === true){
             LocalFilesArray.push(file);
-        });
+        }
+    });
 
-        return LocalFilesArray;
-    };
+    return LocalFilesArray;
+
 };
+
+let LocalFuncForSequelize = () => {
+
+    let LocalFilesPath = "KData/JSON/316";
+    let CommonFiles = fs.readdirSync(LocalFilesPath);
+    let LocalFilesArray = [];
+
+    CommonFiles.forEach(function (file, index) {
+        let result = file.endsWith(".json");
+        if (result === true){
+            LocalFilesArray.push(file);
+        }
+    });
+
+    return LocalFilesArray;
+
+};
+
 
 export { router };
