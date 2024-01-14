@@ -6,7 +6,6 @@ let StartFunc = () => {
     let LocalNerFormData = new FormData(LocalFoam);
 
     jVarLocalBodyKeys.Name = LocalNerFormData.get("UserName");
-    console.log("v:", jVarLocalBodyKeys);
 
     KeysJson.body = JSON.stringify(jVarLocalBodyKeys);
 

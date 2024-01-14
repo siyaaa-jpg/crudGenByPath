@@ -1,9 +1,5 @@
-
 let StartFunc = () => {
-    window.location.href = "";
-    console.log("inDataToShow::", inDataToShow);
+    window.location.href = "table.html";
 };
-
-
 
 export { StartFunc }
