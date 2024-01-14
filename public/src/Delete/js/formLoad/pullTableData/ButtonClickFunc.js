@@ -2,6 +2,7 @@ import { StartFunc as StartFuncAfterFetch } from "./AfterFetch.js";
 
 let StartFunc = async () => {
     let jVarLocalFetchData = await LocalFetchFiles();
+
     StartFuncAfterFetch({ inFromFetch: jVarLocalFetchData });
 };
 

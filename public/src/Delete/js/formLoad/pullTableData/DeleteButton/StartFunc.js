@@ -9,6 +9,9 @@ const StartFunc = () => {
             StartFuncButtonClickFunc({ inevent: event })
         });
     };
+
+    console.log("aaaaa");
+
 };
 
 export { StartFunc };
