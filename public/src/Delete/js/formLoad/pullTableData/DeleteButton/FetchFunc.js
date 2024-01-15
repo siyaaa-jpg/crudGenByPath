@@ -1,6 +1,6 @@
 let StartFunc = async ({ inUuId }) => {
 
-    let jVarLocalFetchUrl = `/bin/sample/${inUuId}`;
+    let jVarLocalFetchUrl = `/src/ksSample/${inUuId}`;
     let jVarFromFetch = await fetch(jVarLocalFetchUrl, {
         method: 'DELETE',
         headers: {

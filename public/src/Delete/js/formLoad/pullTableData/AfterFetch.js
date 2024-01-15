@@ -24,6 +24,9 @@ let StartFunc = ({ inFromFetch }) => {
 };
 
 let LocalOnClickRow = async (row, $element, field) => {
+
+    console.log(row, $element, field)
+    
     if (field === 2) {
         let LocalFromSwal = await swal.fire({
             title: "Are you sure?",
